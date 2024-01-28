@@ -6,7 +6,12 @@ import { db } from "./src/shared/application/mysqlConnection";
 const app = express();
 const PORT = "3000";
 
-app.use(cors());
+let corsOptions = {
+  origin: 'http://localhost:5271', //donde esta desplegado el font
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.use("/", indexRouter);

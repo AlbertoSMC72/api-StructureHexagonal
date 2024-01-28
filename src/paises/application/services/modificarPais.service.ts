@@ -9,7 +9,7 @@ export class ModificarPaisService {
             const resultValidation = validatePartialPais(pais);
             if (!resultValidation.success)
                 throw new Error(resultValidation.error.message);
-            const originalPais = this.PaisRepository.getPaisById(id);
+            const originalPais = await this.PaisRepository.getPaisById(id);
             if (!(pais.nombre && pais.codigo_iso && pais.capital && pais.poblacion && pais.idioma_principal && pais.continente_id && originalPais))
                 throw new Error("Task not found");
             return await this.PaisRepository.updatePais(id, pais);
