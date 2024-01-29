@@ -5,8 +5,7 @@ export class CreatePaisController {
   constructor(private readonly createPaisService: CreatePaisService) {}
 
   async run(req: Request, res: Response) {
-    const { nombre } = req.body;
-    const pais = await this.createPaisService.run(nombre);
+    const pais = await this.createPaisService.run(req.body);
     res.status(201).json(pais);
   }
 }
