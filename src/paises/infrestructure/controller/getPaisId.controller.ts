@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { GetPaisesByIdService } from "../../application/services/getPaisId.service";
 
 export class GetPaisesByIdController {
-  constructor(private readonly getPaisesByIdService: GetPaisesByIdService) {}
+  constructor(private readonly getPaisesByIdService: GetPaisesByIdService) { }
 
   async run(req: Request, res: Response) {
     try {

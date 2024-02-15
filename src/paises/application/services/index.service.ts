@@ -4,3 +4,4 @@ export * from "./getAllPaises.service"
 export * from "./getPaisId.service"
 export * from "./modificarPais.service"
 export * from "./index.service";
+export * from "./getPaisName.service";

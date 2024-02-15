@@ -7,4 +7,5 @@ export interface PaisRepository {
     createPais(pais: Pais): Promise<Pais>;
     updatePais(id: number, pais: Pais): Promise<Pais>;
     deletePais(id: number): Promise<boolean>;
+    getPaisName(nombre: string): Promise<Pais>;
 }

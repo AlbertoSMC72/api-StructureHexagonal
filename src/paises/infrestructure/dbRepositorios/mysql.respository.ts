@@ -49,5 +49,18 @@ export class MysqlPaisRepository implements PaisRepository {
                 throw new Error(err);
             });
         }
+
+    async getPaisName(nombre: string): Promise<Pais> {
+        const query = "SELECT * FROM paises WHERE nombre = ?";
+        return db
+            .execute(query, [nombre])
+            .then((res: any) => {
+                console.log(res);
+                return res[0][0] as Pais;
+            })
+            .catch((err: any) => {
+                throw new Error(err);
+            });
+    }
 }
 

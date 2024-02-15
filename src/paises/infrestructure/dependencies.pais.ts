@@ -5,7 +5,8 @@ import{
     DeletedPaisController,
     GetPaisesController,
     GetPaisesByIdController,
-    PutPaisController
+    PutPaisController,
+    GetPaisesByNameController
 } from "./controller/index.controller";
 
 import{
@@ -13,12 +14,14 @@ import{
     DeletedPaisService,
     GetPaisesService,
     GetPaisesByIdService,
-    ModificarPaisService
+    ModificarPaisService,
+    GetPaisesByNameService
 } from "../application/services/index.service";
 
 const mysqlPaisRepository = new MysqlPaisRepository();
 
 //se iyectan la dependencias de la db a los servicios
+const getPaisesByNameService = new GetPaisesByNameService(mysqlPaisRepository);
 const createPaisService = new CreatePaisService(mysqlPaisRepository);
 const getPaisesByIdService = new GetPaisesByIdService(mysqlPaisRepository);
 const getPaisesService = new GetPaisesService(mysqlPaisRepository);
@@ -26,6 +29,7 @@ const modificarPaisService = new ModificarPaisService(mysqlPaisRepository);
 const deletedPaisService = new DeletedPaisService(mysqlPaisRepository);
 
 //controladores a traves de los servicios
+export const getPaisesByNameController = new GetPaisesByNameController(getPaisesByNameService);
 export const createPaisController = new CreatePaisController(createPaisService);
 export const getPaisesByIdController = new GetPaisesByIdController(getPaisesByIdService);
 export const getPaisesController = new GetPaisesController(getPaisesService);
